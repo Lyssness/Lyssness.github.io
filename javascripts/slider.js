@@ -35,10 +35,10 @@ _init : function( options ) {
         $currcat.show();
     }
     else {
-        $currcat.addClass( 'mi-current' );
+        $currcat.addClass( 'img-current' );
     }
     // current nav category
-    this.$navcategories.eq( 0 ).addClass( 'mi-selected' );
+    this.$navcategories.eq( 0 ).addClass( 'img-selected' );
     // initialize the events
     this._initEvents();
  
@@ -53,8 +53,8 @@ _init : function( options ) {
 
 			// reset on window resize..
 			$( window ).on( 'resize', function() {
-				self.$categories.removeClass().eq( 0 ).addClass( 'mi-current' );
-				self.$navcategories.eq( self.current ).removeClass( 'mi-selected' ).end().eq( 0 ).addClass( 'mi-selected' );
+				self.$categories.removeClass().eq( 0 ).addClass( 'img-current' );
+				self.$navcategories.eq( self.current ).removeClass( 'img-selected' ).end().eq( 0 ).addClass( 'mi-selected' );
 				self.current = 0;
 			} );
 
@@ -66,11 +66,11 @@ _init : function( options ) {
 			}
 			this.isAnimating = true;
 			// update selected navigation
-			this.$navcategories.eq( this.current ).removeClass( 'mi-selected' ).end().eq( catidx ).addClass( 'mi-selected' );
+			this.$navcategories.eq( this.current ).removeClass( 'img-selected' ).end().eq( catidx ).addClass( 'mi-selected' );
 
 			var dir = catidx > this.current ? 'right' : 'left',
-				toClass = dir === 'right' ? 'mi-moveToLeft' : 'mi-moveToRight',
-				fromClass = dir === 'right' ? 'mi-moveFromRight' : 'mi-moveFromLeft',
+				toClass = dir === 'right' ? 'img-moveToLeft' : 'img-moveToRight',
+				fromClass = dir === 'right' ? 'img-moveFromRight' : 'img-moveFromLeft',
 				// current category
 				$currcat = this.$categories.eq( this.current ),
 				// new category
@@ -89,7 +89,7 @@ _init : function( options ) {
 					$newcatchild.eq( lastEnter ).on( self.animEndEventName, function() {
 
 						$( this ).off( self.animEndEventName );
-						$newcat.addClass( 'mi-current' );
+						$newcat.addClass( 'img-current' );
 						self.current = catidx;
 						var $this = $( this );
 						// solve chrome bug
